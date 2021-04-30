@@ -14,7 +14,7 @@ services:
         ports:
             - '${APP_PORT:-80}:80'
         volumes:
-            - ./src:/var/www/html
+            - ./:/var/www/html
         user: devuser
         networks:
             - network
@@ -53,7 +53,7 @@ services:
         image: node:14
         container_name: npm
         volumes:
-            - ./src:/var/www/html
+            - ./:/var/www/html
         working_dir: /var/www/html
         entrypoint: ['npm']
         networks:

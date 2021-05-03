@@ -18,6 +18,11 @@ docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) && docker system 
 docker-compose run --rm npm run dev
 ```
 
+- Artisan / Composer
+```bash
+docker-compose exec app php artisan/composer
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

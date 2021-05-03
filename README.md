@@ -10,10 +10,13 @@
 ## Quick Commands
 
 - Resetting docker completely
-```php
+```bash
 docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) && docker system prune -a
 ```
-- Compiling assets (docker-compose run --rm npm run dev)
+- Compiling assets
+```bash
+docker-compose run --rm npm run dev
+```
 
 ## About Laravel
 

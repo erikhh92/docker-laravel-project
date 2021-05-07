@@ -1,0 +1,31 @@
+{
+    "back": "Atrás",
+    "save": "Guardar",
+    "clear": "Limpiar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "filter": "Filtrar",
+
+    "change language": "Cambiar idioma",
+
+    "post title": "Titulo del post",
+    "post content": "Contenido del post",
+
+    "create post": "Crear Post",
+
+    "spanish": "Español",
+    "english": "Inglés",
+    
+    "dashboard": "Panel de control",
+    "manage account": "Administrar cuenta",
+    "profile": "Perfil",
+    "log out": "Cerrar sesión",
+    "posts": "Posts",
+    "team settings": "Configuración de equipo",
+    "create new team": "Crear nuevo equipo",
+    "switch teams": "Cambiar equipos",
+    "manage team": "Administrar equipo",
+
+    "post stored successfully": "Post guardado correctamente.",
+    "post updated successfully": "Post actualizado correctamente."
+}

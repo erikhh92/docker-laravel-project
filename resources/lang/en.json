@@ -1,0 +1,30 @@
+{
+    "back": "Back",
+    "save": "Save",
+    "clear": "Clear",
+    "edit": "Edit",
+    "delete": "Delete",
+    "filter": "Filter",
+
+    "change language": "Change Language",
+
+    "post title": "Post Title",
+    "post content": "Post Content",
+
+    "create post": "Create Post",
+
+    "spanish": "Spanish",
+    "english": "English",
+
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "log out": "Log Out",
+    "posts": "Posts",
+    "team settings": "Team Settings",
+    "create new team": "Create New Team",
+    "switch teams": "Switch Teams",
+    "manage team": "Manage Team",
+
+    "post stored successfully": "Post stored successfully.",
+    "post updated successfully": "Post updated successfully.",
+}

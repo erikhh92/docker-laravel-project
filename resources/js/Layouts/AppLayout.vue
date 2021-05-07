@@ -16,7 +16,7 @@
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
             <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-              Dashboard
+              {{ __('dashboard') }}
             </jet-nav-link>
           </ul>
 
@@ -36,23 +36,23 @@
                 <!-- Team Management -->
                 <template v-if="$page.props.jetstream.hasTeamFeatures">
                   <h6 class="dropdown-header">
-                    Manage Team
+                    {{ __('manage team') }}
                   </h6>
 
                   <!-- Team Settings -->
                   <jet-dropdown-link :href="route('teams.show', $page.props.user.current_team)">
-                    Team Settings
+                    {{ __('team settings') }}
                   </jet-dropdown-link>
 
                   <jet-dropdown-link :href="route('teams.create')" v-if="$page.props.jetstream.canCreateTeams">
-                    Create New Team
+                    {{ __('create new team') }}
                   </jet-dropdown-link>
 
                   <hr class="dropdown-divider">
 
                   <!-- Team Switcher -->
                   <h6 class="dropdown-header">
-                    Switch Teams
+                    {{ __('switch teams') }}
                   </h6>
 
                   <template v-for="team in $page.props.user.all_teams" :key="team.id">
@@ -88,15 +88,21 @@
               <template #content>
                 <!-- Account Management -->
                 <h6 class="dropdown-header small text-muted">
-                  Manage Account
+                  {{ __('manage account') }}
                 </h6>
 
                 <jet-dropdown-link :href="route('profile.show')">
-                  Profile
+                  {{ __('profile') }}
                 </jet-dropdown-link>
 
                 <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.props.jetstream.hasApiFeatures">
-                  API Tokens
+                  {{ __('api tokens') }}
+                </jet-dropdown-link>
+
+                <hr class="dropdown-divider">
+
+                <jet-dropdown-link :href="route('posts.index')">
+                  {{ __('posts') }}
                 </jet-dropdown-link>
 
                 <hr class="dropdown-divider">
@@ -104,11 +110,14 @@
                 <!-- Authentication -->
                 <form @submit.prevent="logout">
                   <jet-dropdown-link as="button">
-                    Log out
+                    {{ __('log out') }}
                   </jet-dropdown-link>
                 </form>
               </template>
             </jet-dropdown>
+
+            <!-- Language picker -->
+            <language-picker></language-picker>
           </ul>
         </div>
       </div>
@@ -122,7 +131,7 @@
     </header>
 
     <!-- Page Content -->
-    <main class="container my-5">
+    <main class="container my-3">
       <slot></slot>
     </main>
   </div>
@@ -135,6 +144,7 @@ import JetApplicationMark from '@/Jetstream/ApplicationMark'
 import JetDropdown from '@/Jetstream/Dropdown'
 import JetDropdownLink from '@/Jetstream/DropdownLink'
 import JetNavLink from '@/Jetstream/NavLink'
+import LanguagePicker from '@/Components/LanguagePicker'
 
 export default {
   components: {
@@ -144,6 +154,7 @@ export default {
     JetDropdown,
     JetDropdownLink,
     JetNavLink,
+    LanguagePicker
   },
 
   data() {

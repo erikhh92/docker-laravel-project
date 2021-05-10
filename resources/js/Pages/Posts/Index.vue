@@ -45,7 +45,6 @@ import AppLayout from "@/Layouts/AppLayout";
 import BTable from "@/BootstrapComponents/Table";
 import BPaginator from "@/BootstrapComponents/Paginator";
 import BAlert from "@/BootstrapComponents/Alert";
-import { required, minLength, between } from 'vuelidate/lib/validators';
 
 export default {
   props: {

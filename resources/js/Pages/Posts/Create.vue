@@ -25,14 +25,13 @@
                 />
                 <jet-input-error :message="form.errors.title" />
               </div>
-              </div>
+            </div>
 
             <div class="w-100">
               <div class="form-group">
                 <jet-label for="text" value="Post Content" />
                 <textarea class="form-control" id="text" rows="3" v-model="form.text" autofocus :class="{ 'is-invalid': form.errors.text }"></textarea>
                 <jet-input-error :message="form.errors.text" />
-                <div class="invalid-feedback d-block" v-if="v$.form.text.$error">{{ v$.form.text.$errors[0].$message }}</div>
               </div>
             </div>
           </template>
@@ -60,7 +59,6 @@ import BInput from '@/BootstrapComponents/Input';
 export default {
   data() {
     return {
-      email: '',
       form: this.$inertia.form({
         id: null,
         title: "",

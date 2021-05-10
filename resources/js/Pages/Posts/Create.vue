@@ -19,7 +19,7 @@
                 <jet-label for="title" value="Post Title" />
                 <jet-input id="title"
                   type="text"
-                  v-model.trim="form.name"
+                  v-model.trim="form.title"
                   autofocus
                   :class="{ 'is-invalid': form.errors.title }"
                 />

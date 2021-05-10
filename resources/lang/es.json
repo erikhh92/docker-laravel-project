@@ -1,4 +1,12 @@
 {
+    "languages": {
+        "en": "Inglés",
+        "es": "Español",
+        "pt": "Portugués"
+    },
+
+    "there is apples": "No hay manzanas|Hay una manzana|Hay :value manzanas",
+
     "back": "Atrás",
     "save": "Guardar",
     "clear": "Limpiar",
@@ -27,5 +35,6 @@
     "manage team": "Administrar equipo",
 
     "post stored successfully": "Post guardado correctamente.",
-    "post updated successfully": "Post actualizado correctamente."
+    "post updated successfully": "Post actualizado correctamente.",
+    "post deleted successfully": "Post eliminado correctamente."
 }

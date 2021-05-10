@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,11 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('language/{language}', function ($language) {
-    Session()->put('locale', $language);
+Route::get('lang/{locale}', function ($locale) {
+    if(in_array($locale, config('app.available_locales'))) session()->put('locale', $locale);
 
     return redirect()->back();
-})->name('language');
+})->name('set-lang');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -39,3 +40,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     
     Route::resource('posts', PostController::class);
 });
+
+Route::get('check-unique-email/{email}', [UserController::class, 'checkUniqueEmail']);

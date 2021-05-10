@@ -83,8 +83,9 @@ return [
     'locale' => 'en',
 
     'available_locales' => [
-        'en' => 'english',
-        'es' => 'spanish'
+        'pt',
+        'en',
+        'es'
     ],
 
     /*

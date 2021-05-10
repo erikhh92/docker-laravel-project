@@ -1,10 +1,5 @@
 <?php
 
-function available_locales()
-{
-    return config('app.available_locales');
-}
-
 function translations($json)
 {
     if(!file_exists($json)) {

@@ -28,13 +28,11 @@ class AppServiceProvider extends ServiceProvider
             'locale' => function() {
                 return app()->getLocale();
             },
-            'language' => function() {
-                return translations(
-                    resource_path('lang/' . app()->getLocale() . '.json')
-                );
-            },
             'availableLocales' => function() {
-                return available_locales();
+                return config('app.available_locales');
+            },
+            'language' => function() {
+                return translations(resource_path('lang/' . app()->getLocale() . '.json'));
             }
         ]);
     }

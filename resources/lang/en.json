@@ -1,4 +1,12 @@
 {
+    "languages": {
+        "en": "English",
+        "es": "Spanish",
+        "pt": "Portuguese"
+    },
+
+    "there is apples": "There are no apples|There is an apple|There are :count apples",
+
     "back": "Back",
     "save": "Save",
     "clear": "Clear",
@@ -27,4 +35,5 @@
 
     "post stored successfully": "Post stored successfully.",
     "post updated successfully": "Post updated successfully.",
+    "post deleted successfully": "Post deleted successfully."
 }

@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -46,6 +49,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+        });
+
+        Route::bind('post', function ($value) {
+            return Auth::user()->posts()->findOrFail($value);
         });
     }
 

@@ -8,7 +8,7 @@
       aria-expanded="false"
     >
       <span>
-        {{ __(currentLocaleLabel) }}
+        {{ __(`languages.${currentLocale}`) }}
         <svg
           class="ml-2"
           width="18"
@@ -27,7 +27,7 @@
 
     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="languagePicker">
         <h6 class="dropdown-header small text-muted">{{__('change language')}}</h6>
-        <a class="dropdown-item px-4" :class="{'disabled': locale == currentLocale}" v-for="(label, locale) in availableLocales" v-bind:key="locale" :href="route('language', locale)">{{ __(label) }}</a>
+        <a class="dropdown-item px-4" :class="{'disabled': locale == currentLocale}" v-for="locale in availableLocales" v-bind:key="locale" :href="route('set-lang', locale)">{{ __(`languages.${locale}`) }}</a>
     </div>
   </li>
 </template>
@@ -39,9 +39,6 @@ export default {
   computed: {
     currentLocale() {
         return this.$page.props.locale
-    },
-    currentLocaleLabel() {
-        return this.availableLocales[this.currentLocale]
     },
     availableLocales() {
         return this.$page.props.availableLocales

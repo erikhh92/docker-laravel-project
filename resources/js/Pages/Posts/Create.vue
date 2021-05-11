@@ -24,14 +24,41 @@
                   :class="{ 'is-invalid': form.errors.title }"
                 />
                 <jet-input-error :message="form.errors.title" />
+                <div class="invalid-feedback d-block" v-if="v$.form.title.$error">{{ v$.form.title.$errors[0].$message }}</div>
               </div>
             </div>
-
+            <div class="w-100">
+              <div class="form-group">
+                <jet-label for="title" value="Email" />
+                <jet-input id="title"
+                  type="text"
+                  v-model.trim="form.email"
+                  autofocus
+                  :class="{ 'is-invalid': form.errors.email }"
+                />
+                <jet-input-error :message="form.errors.email" />
+                <div class="invalid-feedback d-block" v-if="v$.form.email.$error">{{ v$.form.email.$errors[0].$message }}</div>
+              </div>
+            </div>
+            <div class="w-100">
+              <div class="form-group">
+                <jet-label for="iban" value="IBAN" />
+                <jet-input id="iban"
+                  type="text"
+                  v-model.trim="form.iban"
+                  autofocus
+                  :class="{ 'is-invalid': form.errors.iban }"
+                />
+                <jet-input-error :message="form.errors.iban" />
+                <div class="invalid-feedback d-block" v-if="v$.form.iban.$error">{{ v$.form.iban.$errors[0].$message }}</div>
+              </div>
+            </div>
             <div class="w-100">
               <div class="form-group">
                 <jet-label for="text" value="Post Content" />
                 <textarea class="form-control" id="text" rows="3" v-model="form.text" autofocus :class="{ 'is-invalid': form.errors.text }"></textarea>
                 <jet-input-error :message="form.errors.text" />
+                <div class="invalid-feedback d-block" v-if="v$.form.text.$error">{{ v$.form.text.$errors[0].$message }}</div>
               </div>
             </div>
           </template>
@@ -55,23 +82,54 @@ import JetInput from "@/Jetstream/Input";
 import JetInputError from "@/Jetstream/InputError";
 import JetLabel from "@/Jetstream/Label";
 import BInput from '@/BootstrapComponents/Input';
+import useVuelidate from '@vuelidate/core';
+import { required, email, minLength, helpers } from '@vuelidate/validators';
+import { isValidIBANNumber } from '@/Validators/Iban';
+import { isUniqueEmail } from '@/Validators/UniqueEmail';
 
 export default {
+  setup () {
+    return { v$: useVuelidate() }
+  },  
   data() {
     return {
       form: this.$inertia.form({
         id: null,
         title: "",
+        email: "",
+        iban: "",
         text: "",
       }),
     };
   },
+  validations () {
+    return {
+      form: {
+        title: { required, minLength: minLength(5) },
+
+        email: {
+          required,
+          email,
+          isUniqueEmail: helpers.withMessage('Email already registered', isUniqueEmail)
+        },
+
+        iban: {
+          required,
+          isValidIBANNumber: helpers.withMessage('Value is not a valid IBAN',isValidIBANNumber),
+        },
+        text: { required, minLength: minLength(20) },
+      }
+    }
+  },
   methods: {
     createPost() {
-      this.form.post(route('posts.store'), {
-        errorBag: 'createPost',
-        preserveScroll: true
-      });
+      this.v$.$validate()
+      if(!this.v$.$error){
+        this.form.post(route('posts.store'), {
+          errorBag: 'createPost',
+          preserveScroll: true
+        });
+      }
     },
   },
 

@@ -41,4 +41,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::resource('posts', PostController::class);
 });
 
-Route::get('check-unique-email/{email}', [UserController::class, 'checkUniqueEmail']);
+Route::get('/users/check-unique-email/{email}', [UserController::class, 'checkUniqueEmail']);

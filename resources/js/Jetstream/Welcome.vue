@@ -9,7 +9,7 @@
             </div>
 
             <h3 class="h3 my-4">
-              Welcome to your Jetstream application!
+              Welcome to your Jetstream application!!
             </h3>
 
             <div class="text-muted">

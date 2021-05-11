@@ -23,7 +23,7 @@
                   autofocus
                   :class="{ 'is-invalid': form.errors.title }"
                 />
-                <jet-input-error :message="form.errors.title" />
+                <jet-input-error :message="form.errors.title" class="alert alert-danger"/>
               </div>
             </div>
 
@@ -31,7 +31,7 @@
               <div class="form-group">
                 <jet-label for="text" value="Post Content" />
                 <textarea class="form-control" id="text" rows="3" v-model="form.text" autofocus :class="{ 'is-invalid': form.errors.text }"></textarea>
-                <jet-input-error :message="form.errors.text" />
+                <jet-input-error :message="form.errors.text" class="alert alert-danger"/>
               </div>
             </div>
           </template>

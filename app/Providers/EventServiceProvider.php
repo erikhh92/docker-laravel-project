@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Event;
 use App\Events\PostCreated;
 use App\Listeners\LogPostCreated;
 
+use App\Listeners\NewPostCreatedListener;
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -22,8 +24,11 @@ class EventServiceProvider extends ServiceProvider
         ],
         PostCreated::class => [
             LogPostCreated::class,
-        ]
+            NewPostCreatedListener::class,
+        ],
     ];
+    
+    
 
     /**
      * Register any events for your application.

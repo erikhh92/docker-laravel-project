@@ -47,3 +47,23 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 });
 
 Route::get('/users/check-unique-email/{email}', [UserController::class, 'checkUniqueEmail']);
+
+Route::get('/fakegenerator',function(){
+    $faker = Faker\Factory::create();
+    $limit = 40000;
+//    $limit = 5;
+    $vueStuff = "";
+    $fullJson = "{ \n";
+    $salto = ",\n";
+    for ($i = 0; $i < $limit; $i++) {
+        $clave = substr($faker->unique()->text(16),0,-1);
+        $fullJson .= nl2br ( '  "' . $clave . '": "' . $faker->text(16) . '"' . $salto);
+        $vueStuff .= "{{__('" . $clave . "') }} \n";
+        if ($i== $limit-2) $salto = "\n }";
+    }
+//    preg_replace(strrev("/,/"),strrev(''),strrev($string),1)
+    echo $fullJson;
+    echo " \n";
+    echo $vueStuff;
+});
+

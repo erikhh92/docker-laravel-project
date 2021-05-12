@@ -85,7 +85,6 @@ export default {
 
   components: {
     AppLayout,
-    JetActionMessage,
     JetButton,
     JetFormSection,
     JetInput,

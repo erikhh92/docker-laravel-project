@@ -48,13 +48,11 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
-import JetActionMessage from "@/Jetstream/ActionMessage";
 import JetButton from "@/Jetstream/Button";
 import JetFormSection from "@/Jetstream/FormSection";
 import JetInput from "@/Jetstream/Input";
 import JetInputError from "@/Jetstream/InputError";
 import JetLabel from "@/Jetstream/Label";
-import BInput from '@/BootstrapComponents/Input';
 
 export default {
   data() {
@@ -77,7 +75,6 @@ export default {
 
   components: {
     AppLayout,
-    JetActionMessage,
     JetButton,
     JetFormSection,
     JetInput,

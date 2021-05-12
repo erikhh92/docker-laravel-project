@@ -25,6 +25,8 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'text' => $this->faker->text(300),
+            'email' => $this->faker->email,
+            'iban' => $this->faker->iban('ES'),
             'user_id' => User::all()->random()->id
         ];
     }

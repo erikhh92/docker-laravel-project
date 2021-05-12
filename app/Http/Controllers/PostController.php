@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostsRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -44,13 +45,13 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostsRequest $request)
     {
-        $request->validate([
+        /*$request->validate([
             'title' => ['required', 'max:250', 'min:5'],
             'text' => ['required', 'min:20', 'max:500']
-        ]);
-        
+        ]);*/
+
         Auth::user()->posts()->create($request->all());
 
         return redirect()->route('posts.index')->with('status', ['type' => 'success', 'message' => __('post stored successfully')]);
@@ -89,15 +90,15 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostsRequest $request, Post $post)
     {
-        $request->validate([
+        /*$request->validate([
             'title' => ['required', 'max:250', 'min:5'],
             'text' => ['required', 'min:20', 'max:500']
-        ]);
+        ]);*/
 
         $post->update($request->all());
-        
+
         return redirect()->route('posts.index')->with('status', ['type' => 'success', 'message' => __('post updated successfully')]);
     }
 

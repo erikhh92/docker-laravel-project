@@ -23,13 +23,24 @@ class PostController extends Controller
         ]);
     }
 
-    public function create()
+    public function createVeeValidate()
+    {
+        return Inertia::render('Posts/CreateVeeValidate');
+    }
+
+    public function createVuelidate()
+    {
+        return Inertia::render('Posts/CreateVuelidate');
+    }
+
+    /*public function create()
     {
         return Inertia::render('Posts/Create');
-    }
+    }*/
 
     public function store(PostRequest $request)
     {
+
         Auth::user()->posts()->create($request->all());
 
         return redirect()->route('posts.index')->with('status', ['type' => 'success', 'message' => __('post stored successfully')]);

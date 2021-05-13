@@ -9,7 +9,8 @@
         <b-alert :text="$page.props.status.message" :variant="$page.props.status.type" closable></b-alert>
       </div>
       <div class="col-12 mb-2">
-        <a role="button" class="btn btn-primary" :href="route('posts.create')">{{__('create post')}}</a>
+        <div class="mb-2"><a role="button" class="btn btn-primary" :href="route('posts.create.veevalidate')">{{__('create post')}} Vee-validate</a></div>
+        <div><a role="button" class="btn btn-primary" :href="route('posts.create.vuelidate')">{{__('create post')}} Vuelidate</a></div>
       </div>
       <div class="col-12">
         <div class="card shadow bg-light">

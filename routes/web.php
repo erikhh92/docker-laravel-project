@@ -67,3 +67,6 @@ Route::get('/fakegenerator',function(){
     echo $vueStuff;
 });
 
+
+Route::get('/posts/create/veevalidate', [PostController::class, 'createVeeValidate'])->name('posts.create.veevalidate');
+Route::get('/posts/create/vuelidate', [PostController::class, 'createVuelidate'])->name('posts.create.vuelidate');

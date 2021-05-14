@@ -24,6 +24,7 @@ class PostCreated implements ShouldBroadcast
     public function __construct($post)
     {
         $this->post = $post;
+        $this->dontBroadcastToCurrentUser();
     }
 
     /**

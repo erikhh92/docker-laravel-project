@@ -118,6 +118,9 @@
 
             <!-- Language picker -->
             <language-picker></language-picker>
+
+            <!-- Notifications -->
+            <notification-list></notification-list>
           </ul>
         </div>
       </div>
@@ -145,6 +148,7 @@ import JetDropdown from '@/Jetstream/Dropdown'
 import JetDropdownLink from '@/Jetstream/DropdownLink'
 import JetNavLink from '@/Jetstream/NavLink'
 import LanguagePicker from '@/Components/LanguagePicker'
+import NotificationList from '@/Components/NotificationList'
 
 export default {
   components: {
@@ -154,7 +158,8 @@ export default {
     JetDropdown,
     JetDropdownLink,
     JetNavLink,
-    LanguagePicker
+    LanguagePicker,
+    NotificationList
   },
 
   data() {

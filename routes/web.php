@@ -39,11 +39,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     })->name('dashboard');
     
     Route::resource('posts', PostController::class);
-
-    Route::get('/fire', function() {
-        event(new \App\Events\TestEvent());
-        return "ok";
-    });
 });
 
 Route::get('/users/check-unique-email/{email}', [UserController::class, 'checkUniqueEmail']);

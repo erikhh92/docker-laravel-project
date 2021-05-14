@@ -39,6 +39,16 @@ services:
             - network
         healthcheck:
             test: ["CMD", "mysqladmin", "ping"]
+    echo:
+        image: 'oanhnn/laravel-echo-server'
+        ports:
+            - 6001:6001
+        volumes:
+            - '.:/app'
+        networks:
+            - network
+        depends_on:
+            - app
     redis:
         image: 'redis:alpine'
         ports:

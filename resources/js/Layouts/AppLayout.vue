@@ -105,6 +105,10 @@
                   {{ __('posts') }}
                 </jet-dropdown-link>
 
+                <jet-dropdown-link :href="route('files.index')">
+                  {{ __('files') }}
+                </jet-dropdown-link>
+
                 <hr class="dropdown-divider">
 
                 <!-- Authentication -->

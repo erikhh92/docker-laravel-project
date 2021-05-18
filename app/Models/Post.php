@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'email', 'iban', 'text'];
+    protected $fillable = ['title', 'email', 'iban', 'text', 'file'];
 
     protected $appends = ['author'];
 

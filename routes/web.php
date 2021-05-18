@@ -65,3 +65,6 @@ Route::get('/fakegenerator',function(){
 
 Route::get('/posts/create/veevalidate', [PostController::class, 'createVeeValidate'])->name('posts.create.veevalidate');
 Route::get('/posts/create/vuelidate', [PostController::class, 'createVuelidate'])->name('posts.create.vuelidate');
+
+Route::post('/files-s3', [FileController::class, 'storeS3']);
+Route::post('/files-dropbox', [FileController::class, 'storeDropbox']);

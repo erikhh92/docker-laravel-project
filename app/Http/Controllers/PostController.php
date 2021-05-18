@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Models\File;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
@@ -32,11 +33,6 @@ class PostController extends Controller
     {
         return Inertia::render('Posts/CreateVuelidate');
     }
-
-    /*public function create()
-    {
-        return Inertia::render('Posts/Create');
-    }*/
 
     public function store(PostRequest $request)
     {

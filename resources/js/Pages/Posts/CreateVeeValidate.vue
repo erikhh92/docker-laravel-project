@@ -40,6 +40,7 @@
                 <Field as="textarea" class="form-control" id="text" name="text" rows="3" />
                 <ErrorMessage class="invalid-feedback d-block" name="text" />
               </div>
+
               <a role="button" class="btn btn-light mr-2" :href="route('posts.index')" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">{{ __('back') }}</a>
               <button type="submit" class="btn btn-primary" @click="save(form)">Save</button>
             </Form>
@@ -61,8 +62,10 @@ import { isValidIBANNumber } from '@/Validators/Iban'
 import { isUniqueEmail } from '@/Validators/UniqueEmail'
 import { Inertia } from '@inertiajs/inertia'
 
-
 export default {
+
+  
+
   setup () {
     const schema = Yup.object().shape({
       title: Yup.string().required().min(5).max(250).label("Post Title"),

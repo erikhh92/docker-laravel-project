@@ -25,6 +25,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        //$schedule->call(function () {
+        //    DB::table('posts')->delete();
+        //})->daily()->description("Delete posts table daily");
+
     }
 
     /**

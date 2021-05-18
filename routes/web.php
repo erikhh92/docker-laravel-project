@@ -40,6 +40,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     })->name('dashboard');
     
     Route::resource('posts', PostController::class);
+    Route::resource('files', FileController::class);
+
 });
 
 Route::get('/users/check-unique-email/{email}', [UserController::class, 'checkUniqueEmail']);
@@ -67,6 +69,5 @@ Route::get('/fakegenerator',function(){
 Route::get('/posts/create/veevalidate', [PostController::class, 'createVeeValidate'])->name('posts.create.veevalidate');
 Route::get('/posts/create/vuelidate', [PostController::class, 'createVuelidate'])->name('posts.create.vuelidate');
 
-Route::get('/files', [FileController::class, 'index'])->name('files');
 Route::post('/files-s3', [FileController::class, 'storeS3']);
 Route::post('/files-dropbox', [FileController::class, 'storeDropbox']);

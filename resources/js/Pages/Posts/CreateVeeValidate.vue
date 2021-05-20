@@ -62,9 +62,7 @@ import { isValidIBANNumber } from '@/Validators/Iban'
 import { isUniqueEmail } from '@/Validators/UniqueEmail'
 import { Inertia } from '@inertiajs/inertia'
 
-export default {
-
-  
+export default { 
 
   setup () {
     const schema = Yup.object().shape({

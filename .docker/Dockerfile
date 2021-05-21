@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install zip \
-    && docker-php-source delete
+    && docker-php-ext-install soap \
+    && docker-php-source delete 
 
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 

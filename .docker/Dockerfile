@@ -20,9 +20,19 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install zip \
     && docker-php-ext-install soap \
-    && docker-php-source delete 
+    && docker-php-source delete
+    && pecl install xdebug \
+    && docker-php-ext-enable --ini-name 05-opcache.ini opcache xdebug \
+    && echo "xdebug.mode=develop,debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.client_host = 172.17.0.1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && docker-php-source delete
 
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
+
+# Config XDEBUG
+COPY .docker/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+RUN mv "/usr/local/etc/php/php.ini-production" "/usr/local/etc/php/php.ini"
+
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

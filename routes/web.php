@@ -38,9 +38,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-    
+
     Route::resource('posts', PostController::class);
     Route::resource('files', FileController::class);
+
+    Route::get('/phpinfo', function (){
+        phpinfo();
+    });
 
 });
 

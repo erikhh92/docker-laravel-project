@@ -23,6 +23,18 @@ class PostController extends Controller
         return Inertia::render('Posts/Index', [
             'posts' => $posts
         ]);
+
+        /*$post = Post::all();
+        if($post->count()){
+            $data = $post->toArray();
+        }
+        $first = $post->first()->id;
+        $last = $post->last()->id;
+
+        $count = $post->count();
+
+        return $post;*/
+
     }
 
     public function createVeeValidate()

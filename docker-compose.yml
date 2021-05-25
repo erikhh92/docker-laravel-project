@@ -11,6 +11,9 @@ services:
         environment:
           - APACHE_RUN_USER=#${UID}
           - APACHE_RUN_GROUP=#${UID}
+          - XDEBUG_CLIENT_HOST=172.17.0.1
+          - XDEBUG_CLIENT_PORT=9001
+          - PHP_IDE_CONFIG:serverName=codenip-phpunit
         ports:
             - '${APP_PORT:-80}:80'
         volumes:

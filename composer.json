@@ -10,6 +10,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "inertiajs/inertia-laravel": "^0.3.5",
+        "laminas/laminas-soap": "^2.9",
         "laravel/framework": "^8.40",
         "laravel/jetstream": "^2.3",
         "laravel/sanctum": "^2.6",
@@ -17,7 +18,8 @@
         "league/flysystem-aws-s3-v3": "~1.0",
         "predis/predis": "^1.1",
         "spatie/flysystem-dropbox": "^1.0.0",
-        "tightenco/ziggy": "^1.0"
+        "tightenco/ziggy": "^1.0",
+        "viewflex/zoap": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -13,6 +13,9 @@ class PostController extends Controller
 {
     public function index()
     {
+        $post = Post::find(1);
+        dd($post->getAttributes());
+
         $posts = Auth::user()->posts()->paginate(5);
 
         if(request()->page > $posts->lastPage()) {
